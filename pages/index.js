@@ -1,9 +1,43 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+
+import { createStore, combineReducers } from 'redux'
+import { Provider } from 'react-redux'
+
 import App from '../components/App'
 
+// stateの値
+let state_value = {
+  counter: 0,
+  message: "COUNTER"
+}
+
+// reducers
+function counter(state = state_value, action) {
+  switch (action.type){
+    case 'INCREMENT':
+    return {
+      counter: state.counter + 1,
+      message: "INCREMENT"
+    };
+    case 'DECREMENT':
+    return {
+      counter: state.counter - 1,
+      message: "DECREMENT"
+    };
+    default:
+    return state;
+  }
+}
+
+// storeを作成
+let store = createStore(counter);
+
+// 表示をレンダリング
 export default () => (
-  <App msg="Hello App." />
+  <Provider store={store}>
+    <App msg="Hello App." />
+  </Provider>
 );
 // import Link from 'next/link';
 // import Layout from '../components/Layout';

@@ -8,6 +8,11 @@
 	"devDependencies": {
 		"next": "^9.0.2",
 		"react": "^16.8.6",
-		"react-dom": "^16.8.6"
+		"react-dom": "^16.8.6",
+		"redux-devtools": "^3.5.0"
+	},
+	"dependencies": {
+		"react-redux": "^7.1.0",
+		"redux": "^4.0.4"
 	}
 }
